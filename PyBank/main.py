@@ -99,4 +99,4 @@ with open (resultsfile, "w") as textfile:
     textfile.write(f'Total: {totalprofitloss}\n')
     textfile.write(f'Average Change: {averagemonthlychange}\n')
     textfile.write(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})\n')
-    textfile.write(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})\n')
+    textfile.write(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})')

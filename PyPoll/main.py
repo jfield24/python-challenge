@@ -60,14 +60,35 @@ percent[3] = "{:.3%}".format(votespercandidate[3]/totalvotes)
 mostvotes = max(votespercandidate)
 winner = candidatenames[(votespercandidate.index(mostvotes))]
 
+votetotal = "{:,}".format(totalvotes)
+
+candvotes0 = "{:,}".format(votespercandidate[0])
+candvotes1 = "{:,}".format(votespercandidate[1])
+candvotes2 = "{:,}".format(votespercandidate[2])
+candvotes3 = "{:,}".format(votespercandidate[3])
+
 print("Election Results")
 print("--------------------")
-print(f'Total Votes: {totalvotes}')
+print(f'Total Votes: {votetotal}')
 print("--------------------")
-print(f'{candidatenames[0]}: {percent[0]} ("{:,}".format{votespercandidate[0]})')
-print(f'{candidatenames[1]}: {percent[1]} ({votespercandidate[1]})')
-print(f'{candidatenames[2]}: {percent[2]} ({votespercandidate[2]})')
-print(f'{candidatenames[3]}: {percent[3]} ({votespercandidate[3]})')
+print(f'{candidatenames[0]}: {percent[0]} ({candvotes0})')
+print(f'{candidatenames[1]}: {percent[1]} ({candvotes1})')
+print(f'{candidatenames[2]}: {percent[2]} ({candvotes2})')
+print(f'{candidatenames[3]}: {percent[3]} ({candvotes3})')
 print("--------------------")
 print(f'Winner: {winner}')
 print("--------------------")
+
+# Exports text file with results
+resultsfile = os.path.join("Analysis", "results.txt")
+
+with open (resultsfile, "w") as textfile:
+    textfile.write("Election Restults\n")
+    textfile.write("--------------------\n")
+    textfile.write(f'Total Votes: {votetotal}\n')
+    textfile.write("--------------------\n")
+    textfile.write(f'{candidatenames[0]}: {percent[0]} ({candvotes0})\n')
+    textfile.write(f'{candidatenames[1]}: {percent[1]} ({candvotes1})\n')
+    textfile.write(f'{candidatenames[2]}: {percent[2]} ({candvotes2})\n')
+    textfile.write(f'{candidatenames[3]}: {percent[3]} ({candvotes3})\n')
+    
