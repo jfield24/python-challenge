@@ -10,7 +10,7 @@ months = []
 profitloss = []
 monthlychanges = []
 
-# Holding variable at the start 
+# Sets the initial varaibles
 totalprofitloss = 0
 monthcount = 0
 openingprofitloss = 0
@@ -34,22 +34,34 @@ with open(csvpath, 'r') as csv_file:
         
         # Adds to the initially empty variable totalprofitloss, and sums the total profit and loss
         totalprofitloss = sum(profitloss)
-    
-        # Set an initial value of iterator
-        i = 0
 
+        monthcount +=1
         
-        for i in range(len(profitloss)-1):
+        closingprofitloss = int(row[1])
 
-            closingprofitloss = int(profitloss[i+1])
-            openingprofitloss = int(profitloss[i])
+        if monthcount == 1:
+
+            openingprofitloss = closingprofitloss
+
+        else: 
             monthlychange = closingprofitloss - openingprofitloss
 
-            monthlychanges.append(int(monthlychange))
+            monthlychanges.append(monthlychange)
 
-        averagemonthlychange = (sum(monthlychanges))/int(totalmonths)
+            openingprofitloss = closingprofitloss
+
+    averagemonthlychange = sum(monthlychanges)/(monthcount - 1)
+
+    averagemonthlychange = round((averagemonthlychange),2)
 
     print(averagemonthlychange)
+
+
+
+
+            
+
+
 
             
             
