@@ -87,4 +87,13 @@ print(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})')
 print(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})')
 
 # Exports text file with results
-resultsfile = os.path.join("Analysis", )
+resultsfile = os.path.join("Analysis", "Results.txt")
+
+with open (resultsfile, "w") as txtfile:
+    txtfile.write("Financial Analysis\n")
+    txtfile.write("--------------------\n")
+    txtfile.write(f'Total Months: {totalmonths}\n')
+    txtfile.write(f'Total: {totalprofitloss}\n')
+    txtfile.write(f'Average Change: {averagemonthlychange}\n')
+    txtfile.write(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})\n')
+    txtfile.write(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})\n')
