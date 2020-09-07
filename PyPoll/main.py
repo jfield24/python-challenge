@@ -46,7 +46,28 @@ with open(csvpath, 'r') as csv_file:
         elif candidatename == candidatenames[3]:
             votespercandidate[3] += 1
 
+percent = [0, 0, 0, 0]
 
-print(totalvotes)
-print(candidatenames)
-print(f'({votespercandidate})')
+percent[0] = "{:.3%}".format(votespercandidate[0]/totalvotes)
+
+percent[1] = "{:.3%}".format(votespercandidate[1]/totalvotes)
+
+percent[2] = "{:.3%}".format(votespercandidate[2]/totalvotes)
+
+percent[3] = "{:.3%}".format(votespercandidate[3]/totalvotes)
+
+
+mostvotes = max(votespercandidate)
+winner = candidatenames[(votespercandidate.index(mostvotes))]
+
+print("Election Results")
+print("--------------------")
+print(f'Total Votes: {totalvotes}')
+print("--------------------")
+print(f'{candidatenames[0]}: {percent[0]} ("{:,}".format{votespercandidate[0]})')
+print(f'{candidatenames[1]}: {percent[1]} ({votespercandidate[1]})')
+print(f'{candidatenames[2]}: {percent[2]} ({votespercandidate[2]})')
+print(f'{candidatenames[3]}: {percent[3]} ({votespercandidate[3]})')
+print("--------------------")
+print(f'Winner: {winner}')
+print("--------------------")
