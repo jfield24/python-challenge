@@ -3,7 +3,7 @@ import os
 import csv
 
 # Locates the CSV file used for analysis
-csvpath = os.path.join(".", "Resources", "budget_data.csv")
+csvpath = os.path.join("Resources", "budget_data.csv")
 
 # Creates the lists we can append the necessary info to
 months = []
@@ -85,3 +85,6 @@ print(f'Total: {totalprofitloss}')
 print(f'Average Change: {averagemonthlychange}')
 print(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})')
 print(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})')
+
+# Exports text file with results
+resultsfile = os.path.join("Analysis", )
