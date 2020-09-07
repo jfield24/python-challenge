@@ -2,6 +2,9 @@
 import os
 import csv
 
+# Forces python to change to directory with this python script
+os.chdir(os.path.dirname(__file__))
+
 # Locates the CSV file used for analysis
 csvpath = os.path.join("Resources", "budget_data.csv")
 
@@ -87,13 +90,13 @@ print(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})')
 print(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})')
 
 # Exports text file with results
-resultsfile = os.path.join("Analysis", "Results.txt")
+resultsfile = os.path.join("Analysis", "resultsfile.txt")
 
-with open (resultsfile, "w") as txtfile:
-    txtfile.write("Financial Analysis\n")
-    txtfile.write("--------------------\n")
-    txtfile.write(f'Total Months: {totalmonths}\n')
-    txtfile.write(f'Total: {totalprofitloss}\n')
-    txtfile.write(f'Average Change: {averagemonthlychange}\n')
-    txtfile.write(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})\n')
-    txtfile.write(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})\n')
+with open (resultsfile, "w") as textfile:
+    textfile.write("Financial Analysis\n")
+    textfile.write("--------------------\n")
+    textfile.write(f'Total Months: {totalmonths}\n')
+    textfile.write(f'Total: {totalprofitloss}\n')
+    textfile.write(f'Average Change: {averagemonthlychange}\n')
+    textfile.write(f'Greatest Increase in Profits: {bestmonth} ({greatestincrease})\n')
+    textfile.write(f'Greatest Decrease in Profits: {worstmonth} ({greatestdecrease})\n')
